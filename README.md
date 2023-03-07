@@ -9,6 +9,14 @@ This template should help get you started developing with Tauri, Solid and Types
 ## Deps
 
 - Rust-Audio/cpal:
+
   - Linux (via ALSA or JACK)
   - Windows (via WASAPI by default, see ASIO instructions below)
   - macOS (via CoreAudio)
+
+- FFMPEG lägg till i path man!
+
+## +rep
+
+- Numenorean
+  - https://github.com/Numenorean/ShazamAPI

@@ -59,7 +59,7 @@
     },
     "windows": [
       {
-        "x": 1800,
+        "focus":false,
         "fullscreen": false,
         "height": 600,
         "resizable": true,

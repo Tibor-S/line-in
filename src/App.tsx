@@ -2,14 +2,35 @@ import { createSignal } from "solid-js";
 import logo from "./assets/logo.svg";
 import { invoke } from "@tauri-apps/api/tauri";
 import "./App.css";
-
+import { listen } from '@tauri-apps/api/event'
 function App() {
   const [greetMsg, setGreetMsg] = createSignal("");
   const [name, setName] = createSignal("");
+  invoke("initialize_audio", {})
+
+  listen('get-data', (event) => {
+    // event.event is the event name (useful if you want to use a single callback fn for multiple event types)
+    // event.payload is the payload object
+    console.log(event.payload)
+    setGreetMsg((event.payload as {data: number[]}).data.toString())
+    console.log(Date.now())
+  })
+  
 
   async function greet() {
     // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-    invoke("audio", {/* name: name() */});
+    // (invoke("get_audio_data", {/* name: name() */}))
+    // .then(d => console.log(d));
+    // setTimeout(() => {
+    //   const start = Date.now()
+    //   invoke("get_audio_data", {/* name: name() */})
+    //     .then(d => {
+    //       console.log(Date.now() - start)
+    //       console.log(d)
+    //     })
+    // }, 5000);
+    console.log(Date.now())
+    invoke("test", {})
   }
 
   return (
