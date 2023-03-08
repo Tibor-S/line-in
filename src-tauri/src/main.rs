@@ -4,10 +4,12 @@
 )]
 
 mod audio;
+mod call_py;
 use std::{
     self,
     sync::{Arc, RwLock},
     thread,
+    time::Duration,
 };
 
 use tauri::{Manager, State};
@@ -53,7 +55,14 @@ fn test(window: tauri::Window, audio_data: State<SampleData>) {
 
 fn main() {
     let sample_data = Arc::new(RwLock::new([0f32; audio::SAMPLE_LEN]));
-
+    thread::spawn(move || {
+        thread::sleep(Duration::from_secs(6));
+        println!("Shazam recording");
+        let sh = call_py::shazam();
+        println!("Track: {}", sh.track);
+        println!("Artist: {}", sh.artist);
+        println!("Cover Art: {}", sh.coverart);
+    });
     // let test = *r_data.read().unwrap();
     tauri::Builder::default()
         .manage(SampleData(sample_data))

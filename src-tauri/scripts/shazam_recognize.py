@@ -41,7 +41,8 @@ def recognize(data: bytes):
     artist = "n/a"
     coverart = "n/a"
 
-    print(json.dump(list(recognize_generator), open("./test.json", "w"), indent=2))
+    print(json.dump(list(recognize_generator),
+          open("./tmp/test.json", "w"), indent=2))
     song = recognize_generator[0][1]['track']['title']
     artist = recognize_generator[0][1]['track']['subtitle']
     coverart = recognize_generator[0][1]['track']['images']['coverart']

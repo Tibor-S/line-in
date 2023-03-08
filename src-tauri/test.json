@@ -1,0 +1,252 @@
+[
+  [
+    4.688,
+    {
+      "matches": [
+        {
+          "id": "226568668",
+          "offset": 67.36659375,
+          "timeskew": 0.00015032291,
+          "frequencyskew": 0.0
+        }
+      ],
+      "location": {
+        "accuracy": 0.01
+      },
+      "timestamp": 1678301647608,
+      "timezone": "Europe/Moscow",
+      "track": {
+        "layout": "5",
+        "type": "MUSIC",
+        "key": "5189640",
+        "title": "Dead",
+        "subtitle": "Pixies",
+        "images": {
+          "background": "https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/3b/3a/8b/3b3a8b81-1145-ea65-b432-abbefb45e3e8/pr_source.png/800x800cc.jpg",
+          "coverart": "https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/10/45/70/1045707d-2630-fa51-8226-296a0719a6a2/5014436905025.png/400x400cc.jpg",
+          "coverarthq": "https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/10/45/70/1045707d-2630-fa51-8226-296a0719a6a2/5014436905025.png/400x400cc.jpg",
+          "joecolor": "b:5b4023p:d5e4c3s:dbc4a8t:bcc3a3q:c1a98e"
+        },
+        "share": {
+          "subject": "Dead - Pixies",
+          "text": "\u041c\u043e\u0435 \u043e\u0442\u043a\u0440\u044b\u0442\u0438\u0435 \u043d\u0430 Shazam: Pixies - Dead.",
+          "href": "https://www.shazam.com/track/5189640/dead",
+          "image": "https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/10/45/70/1045707d-2630-fa51-8226-296a0719a6a2/5014436905025.png/400x400cc.jpg",
+          "twitter": "\u041c\u043e\u0435 \u043e\u0442\u043a\u0440\u044b\u0442\u0438\u0435 \u043d\u0430 @Shazam: Pixies \u2013 Dead.",
+          "html": "https://www.shazam.com/snippets/email-share/5189640?lang=ru&country=RU",
+          "avatar": "https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/3b/3a/8b/3b3a8b81-1145-ea65-b432-abbefb45e3e8/pr_source.png/800x800cc.jpg",
+          "snapchat": "https://www.shazam.com/partner/sc/track/5189640"
+        },
+        "hub": {
+          "type": "APPLEMUSIC",
+          "image": "https://images.shazam.com/static/icons/hub/ios/v5/applemusic_{scalefactor}.png",
+          "actions": [
+            {
+              "name": "apple",
+              "type": "applemusicplay",
+              "id": "7060449"
+            },
+            {
+              "name": "apple",
+              "type": "uri",
+              "uri": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/a9/30/90/a93090e4-8da1-7a3e-5a0f-68c51df26a16/mzaf_10912860867614027764.plus.aac.p.m4a"
+            }
+          ],
+          "options": [
+            {
+              "caption": "\u041e\u0422\u041a\u0420\u042b\u0422\u042c \u0412",
+              "actions": [
+                {
+                  "name": "hub:applemusic:deeplink",
+                  "type": "applemusicopen",
+                  "uri": "https://music.apple.com/ru/album/dead/7060469?i=7060449&mttnagencyid=s2n&mttnsiteid=125115&mttn3pid=Apple-Shazam&mttnsub1=Shazam_ios&mttnsub2=5348615A-616D-3235-3830-44754D6D5973&itscg=30201&app=music&itsct=Shazam_ios"
+                },
+                {
+                  "name": "hub:applemusic:deeplink",
+                  "type": "uri",
+                  "uri": "https://music.apple.com/ru/album/dead/7060469?i=7060449&mttnagencyid=s2n&mttnsiteid=125115&mttn3pid=Apple-Shazam&mttnsub1=Shazam_ios&mttnsub2=5348615A-616D-3235-3830-44754D6D5973&itscg=30201&app=music&itsct=Shazam_ios"
+                }
+              ],
+              "beacondata": {
+                "type": "open",
+                "providername": "applemusic"
+              },
+              "image": "https://images.shazam.com/static/icons/hub/ios/v5/overflow-open-option_{scalefactor}.png",
+              "type": "open",
+              "listcaption": "\u041e\u0442\u043a\u0440\u044b\u0442\u044c \u0432 Apple Music",
+              "overflowimage": "https://images.shazam.com/static/icons/hub/ios/v5/applemusic-overflow_{scalefactor}.png",
+              "colouroverflowimage": false,
+              "providername": "applemusic"
+            },
+            {
+              "caption": "\u041a\u0423\u041f\u0418\u0422\u042c",
+              "actions": [
+                {
+                  "type": "uri",
+                  "uri": "https://itunes.apple.com/ru/album/dead/7060469?i=7060449&mttnagencyid=s2n&mttnsiteid=125115&mttn3pid=Apple-Shazam&mttnsub1=Shazam_ios&mttnsub2=5348615A-616D-3235-3830-44754D6D5973&itscg=30201&app=itunes&itsct=Shazam_ios"
+                }
+              ],
+              "beacondata": {
+                "type": "buy",
+                "providername": "itunes"
+              },
+              "image": "https://images.shazam.com/static/icons/hub/ios/v5/itunes-overflow-buy_{scalefactor}.png",
+              "type": "buy",
+              "listcaption": "\u041a\u0443\u043f\u0438\u0442\u044c \u043d\u0430 iTunes",
+              "overflowimage": "https://images.shazam.com/static/icons/hub/ios/v5/itunes-overflow-buy_{scalefactor}.png",
+              "colouroverflowimage": false,
+              "providername": "itunes"
+            }
+          ],
+          "providers": [
+            {
+              "caption": "\u041e\u0442\u043a\u0440\u044b\u0442\u044c \u0432 Spotify",
+              "images": {
+                "overflow": "https://images.shazam.com/static/icons/hub/ios/v5/spotify-overflow_{scalefactor}.png",
+                "default": "https://images.shazam.com/static/icons/hub/ios/v5/spotify_{scalefactor}.png"
+              },
+              "actions": [
+                {
+                  "name": "hub:spotify:searchdeeplink",
+                  "type": "uri",
+                  "uri": "spotify:search:Dead%20Pixies"
+                }
+              ],
+              "type": "SPOTIFY"
+            },
+            {
+              "caption": "\u041e\u0442\u043a\u0440\u044b\u0442\u044c \u0432 Deezer",
+              "images": {
+                "overflow": "https://images.shazam.com/static/icons/hub/ios/v5/deezer-overflow_{scalefactor}.png",
+                "default": "https://images.shazam.com/static/icons/hub/ios/v5/deezer_{scalefactor}.png"
+              },
+              "actions": [
+                {
+                  "name": "hub:deezer:searchdeeplink",
+                  "type": "uri",
+                  "uri": "deezer-query://www.deezer.com/play?query=%7Btrack%3A%27Dead%27%20artist%3A%27Pixies%27%7D"
+                }
+              ],
+              "type": "DEEZER"
+            }
+          ],
+          "explicit": false,
+          "displayname": "APPLE MUSIC"
+        },
+        "sections": [
+          {
+            "type": "SONG",
+            "metapages": [
+              {
+                "image": "https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/3b/3a/8b/3b3a8b81-1145-ea65-b432-abbefb45e3e8/pr_source.png/800x800cc.jpg",
+                "caption": "Pixies"
+              },
+              {
+                "image": "https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/10/45/70/1045707d-2630-fa51-8226-296a0719a6a2/5014436905025.png/400x400cc.jpg",
+                "caption": "Dead"
+              }
+            ],
+            "tabname": "\u041f\u0435\u0441\u043d\u044f",
+            "metadata": [
+              {
+                "title": "\u0410\u043b\u044c\u0431\u043e\u043c",
+                "text": "Doolittle"
+              },
+              {
+                "title": "\u041b\u0435\u0439\u0431\u043b",
+                "text": "4AD"
+              },
+              {
+                "title": "\u0412\u044b\u043f\u0443\u0449\u0435\u043d\u043e",
+                "text": "1989"
+              }
+            ]
+          },
+          {
+            "type": "LYRICS",
+            "text": [
+              "(What do you think of nothing?)",
+              "",
+              "(I'd like to do a nursery rhyme)",
+              "",
+              "You crazy babe, Bathsheba, I wantcha",
+              "You're suffocating, you need a good shed",
+              "I'm tired of living, Shebe, so gimme",
+              "Dead!",
+              "",
+              "Dead!",
+              "",
+              "We're apin', rapin', tapin', catharsis",
+              "You get torn down and I get erected",
+              "My blood is working but my, my heart is",
+              "Dead!",
+              "",
+              "Dead!",
+              "",
+              "Dead!",
+              "Hey, what do you know?",
+              "Your lovely, tan belly is starting to grow!",
+              "",
+              "Uriah hit the crapper, the crapper",
+              "Uriah hit the crapper, the crapper",
+              "Uriah hit the crapper, the crapper",
+              "Dead!",
+              "",
+              "Dead!"
+            ],
+            "url": "https://cdn.shazam.com/lyrics/v1/ru/RU/iphone/musixmatch/subtitles/64314/141/1?token=4df59bb6d96d5cdb1f2d5c2383e82ea5",
+            "footer": "Writer(s): Charles Thompson\nLyrics powered by www.musixmatch.com",
+            "tabname": "\u0421\u043b\u043e\u0432\u0430",
+            "beacondata": {
+              "lyricsid": "29790213",
+              "providername": "musixmatch",
+              "commontrackid": "64314"
+            }
+          },
+          {
+            "type": "VIDEO",
+            "tabname": "\u0412\u0438\u0434\u0435\u043e",
+            "youtubeurl": "https://cdn.shazam.com/video/v3/-/RU/iphone/5189640/youtube/video?q=Pixies+%22Dead%22"
+          },
+          {
+            "type": "RELATED",
+            "url": "https://cdn.shazam.com/shazam/v3/ru/RU/iphone/-/tracks/track-similarities-id-5189640?startFrom=0&pageSize=20&connected=",
+            "tabname": "\u041f\u043e\u0445\u043e\u0436\u0438\u0435"
+          }
+        ],
+        "url": "https://www.shazam.com/track/5189640/dead",
+        "artists": [
+          {
+            "id": "42",
+            "adamid": "2730151"
+          }
+        ],
+        "isrc": "GBAFL8900011",
+        "genres": {
+          "primary": "\u0410\u043b\u044c\u0442\u0435\u0440\u043d\u0430\u0442\u0438\u0432\u0430"
+        },
+        "urlparams": {
+          "{tracktitle}": "Dead",
+          "{trackartist}": "Pixies"
+        },
+        "myshazam": {
+          "apple": {
+            "actions": [
+              {
+                "name": "myshazam:apple",
+                "type": "uri",
+                "uri": "https://music.apple.com/ru/album/dead/7060469?i=7060449&mttnagencyid=s2n&mttnsiteid=125115&mttn3pid=Apple-Shazam&mttnsub1=Shazam_ios&mttnsub2=5348615A-616D-3235-3830-44754D6D5973&itscg=30201&app=music&itsct=Shazam_ios"
+              }
+            ]
+          }
+        },
+        "highlightsurls": {
+          "artisthighlightsurl": "https://cdn.shazam.com/video/v3/ru/RU/iphone/2730151/highlights?affiliate=mttnagencyid%3Ds2n%26mttnsiteid%3D125115%26mttn3pid%3DApple-Shazam%26mttnsub1%3DShazam_ios%26mttnsub2%3D5348615A-616D-3235-3830-44754D6D5973%26itscg%3D30201%26app%3Dmusic%26itsct%3DShazam_ios"
+        },
+        "relatedtracksurl": "https://cdn.shazam.com/shazam/v3/ru/RU/iphone/-/tracks/track-similarities-id-5189640?startFrom=0&pageSize=20&connected=",
+        "albumadamid": "7060469"
+      },
+      "tagid": "ED6BCC7A-00A5-4132-B8A8-0A9622FC7C04"
+    }
+  ]
+]

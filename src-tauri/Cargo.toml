@@ -23,6 +23,7 @@ cty = "0.2.2"
 gstreamer = "0.19.8"
 cpal = "0.13.0"
 hound = "3.5.0"
+pyo3 = "0.18.1"
 
 [features]
 # by default Tauri runs in production mode
