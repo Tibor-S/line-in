@@ -2,27 +2,25 @@ use pyo3::prelude::*;
 use pyo3::types::{PyBytes, PyTuple};
 use std::fs;
 
-pub struct Shazam {
+pub struct TrackData {
     pub track: String,
     pub artist: String,
     pub coverart: String,
 }
 
-impl Shazam {
-    pub fn empty() -> Shazam {
-        Shazam {
-            track: String::from("n/a"),
-            artist: String::from("n/a"),
-            coverart: String::from("n/a"),
-        }
+pub fn empty_track_data() -> TrackData {
+    TrackData {
+        track: "n/a".to_string(),
+        artist: "n/a".to_string(),
+        coverart: "n/a".to_string(),
     }
 }
 
-pub fn shazam() -> Shazam {
+pub fn recognize_track() -> TrackData {
     pyo3::prepare_freethreaded_python();
-    let mut def_rec = Shazam::empty();
+    let mut def_rec = empty_track_data();
 
-    let exec_py: Result<Shazam, PyErr> = Python::with_gil(|py| {
+    let exec_py: Result<TrackData, PyErr> = Python::with_gil(|py| {
         PyModule::import(py, "ShazamAPI")?;
         let bytes = fs::read("tmp/sine.wav").expect("Couldnt load /tmp/sine.wav");
         let args = (PyBytes::new(py, &bytes),);
@@ -32,7 +30,7 @@ pub fn shazam() -> Shazam {
                 .call1(args)?
                 .extract();
 
-        let mut def_rec = Shazam::empty();
+        let mut def_rec = empty_track_data();
 
         match fun {
             Ok(sh) => {
@@ -49,7 +47,13 @@ pub fn shazam() -> Shazam {
     });
 
     match exec_py {
-        Ok(sh) => def_rec = sh,
+        Ok(sh) => {
+            def_rec = TrackData {
+                track: sh.track,
+                artist: sh.artist,
+                coverart: sh.coverart,
+            }
+        }
         Err(e) => println!("Error occured when recognizing sound: {}", e),
     };
     return def_rec;

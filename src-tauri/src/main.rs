@@ -12,6 +12,7 @@ use std::{
     time::Duration,
 };
 
+use call_py::TrackData;
 use tauri::{Manager, State};
 
 struct SampleData(Arc<RwLock<[f32; audio::SAMPLE_LEN]>>);
@@ -43,26 +44,57 @@ struct DataPayload {
     data: Vec<f32>,
 }
 
+#[derive(Clone, serde::Serialize)]
+struct TrackPayload<'a> {
+    track: &'a str,
+    artist: &'a str,
+    coverart: &'a str,
+}
+
 #[tauri::command]
-fn test(window: tauri::Window, audio_data: State<SampleData>) {
+fn emit_audio_data(window: tauri::Window, audio_data: State<SampleData>) {
     // println!("Window: {}", window.emit<Payload>("get-data", {data: (*audio_data.0.read().unwrap()).to_vec()}))
     // println!("{}", window.)
-    let test = (*audio_data.0.read().unwrap()).to_vec();
+    let audio = (*audio_data.0.read().unwrap()).to_vec();
     window
-        .emit_all("get-data", DataPayload { data: test })
+        .emit_all("get-data", DataPayload { data: audio })
+        .unwrap();
+}
+
+#[tauri::command]
+fn emit_track(window: tauri::Window) {
+    let track_data = Arc::new(RwLock::new(TrackData {
+        track: "n/a".to_string(),
+        artist: "n/a".to_string(),
+        coverart: "n/a".to_string(),
+    }));
+    let thread_track_data = Arc::clone(&track_data);
+    let handle = thread::spawn(move || {
+        let mut track_data = thread_track_data.write().unwrap();
+        println!("Shazam recording");
+        let sh = call_py::recognize_track();
+        println!("Track: {}", sh.track);
+        println!("Artist: {}", sh.artist);
+        println!("Cover Art: {}", sh.coverart);
+        *track_data = sh;
+    });
+    handle.join().unwrap();
+    let shazam = track_data.read().unwrap();
+    window
+        .emit_all(
+            "get-track",
+            TrackPayload {
+                track: &shazam.track,
+                artist: &shazam.artist,
+                coverart: &shazam.coverart,
+            },
+        )
         .unwrap();
 }
 
 fn main() {
     let sample_data = Arc::new(RwLock::new([0f32; audio::SAMPLE_LEN]));
-    thread::spawn(move || {
-        thread::sleep(Duration::from_secs(6));
-        println!("Shazam recording");
-        let sh = call_py::shazam();
-        println!("Track: {}", sh.track);
-        println!("Artist: {}", sh.artist);
-        println!("Cover Art: {}", sh.coverart);
-    });
+
     // let test = *r_data.read().unwrap();
     tauri::Builder::default()
         .manage(SampleData(sample_data))
@@ -70,7 +102,8 @@ fn main() {
             greet,
             get_audio_data,
             initialize_audio,
-            test
+            emit_audio_data,
+            emit_track
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
