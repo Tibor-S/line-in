@@ -32,6 +32,7 @@ function App() {
   
   setInterval(() => invoke("emit_track", {}), 30000)
   async function getTrack() {
+    invoke("emit_track", {});
   }
 
   return (

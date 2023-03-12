@@ -2,6 +2,8 @@ use pyo3::prelude::*;
 use pyo3::types::{PyBytes, PyTuple};
 use std::fs;
 
+use crate::utils::{log, tmp_sample_file};
+
 pub struct TrackData {
     pub track: String,
     pub artist: String,
@@ -10,53 +12,66 @@ pub struct TrackData {
 
 pub fn empty_track_data() -> TrackData {
     TrackData {
-        track: "n/a".to_string(),
-        artist: "n/a".to_string(),
-        coverart: "n/a".to_string(),
+        track: "".to_string(),
+        artist: "".to_string(),
+        coverart: "".to_string(),
     }
 }
 
 pub fn recognize_track() -> TrackData {
+    // Define essentials
     pyo3::prepare_freethreaded_python();
-    let mut def_rec = empty_track_data();
+    let mut track_data = empty_track_data();
 
+    // Execute and extract python script
     let exec_py: Result<TrackData, PyErr> = Python::with_gil(|py| {
+        // Define essentials
         PyModule::import(py, "ShazamAPI")?;
-        let bytes = fs::read("tmp/sine.wav").expect("Couldnt load /tmp/sine.wav");
+        let bytes = fs::read(tmp_sample_file())?;
         let args = (PyBytes::new(py, &bytes),);
-        let fun: Result<&PyTuple, PyErr> =
+        let mut track_data = empty_track_data();
+
+        // Execute script
+        let script: Result<&PyTuple, PyErr> =
             PyModule::from_code(py, SHAZAM_CODE, "Shazam.py", "Shazam")?
                 .getattr("recognize")?
                 .call1(args)?
                 .extract();
-
-        let mut def_rec = empty_track_data();
-
-        match fun {
+        match script {
             Ok(sh) => {
                 if sh.len() == 3 {
-                    def_rec.track = sh.get_item(0)?.to_string();
-                    def_rec.artist = sh.get_item(1)?.to_string();
-                    def_rec.coverart = sh.get_item(2)?.to_string();
+                    track_data.track = sh.get_item(0)?.to_string();
+                    track_data.artist = sh.get_item(1)?.to_string();
+                    track_data.coverart = sh.get_item(2)?.to_string();
                 }
             }
-            Err(b) => println!("Error occured when recognizing sound: {}", b),
+            Err(e) => log(
+                "call_py",
+                "exec_py",
+                &format!("Error occured when recognizing sound: {}", e),
+            ),
         };
 
-        Ok(def_rec)
+        // Return track_data if ok
+        Ok(track_data)
     });
 
+    // Returning track_data or "null"
     match exec_py {
         Ok(sh) => {
-            def_rec = TrackData {
+            track_data = TrackData {
                 track: sh.track,
                 artist: sh.artist,
                 coverart: sh.coverart,
             }
         }
-        Err(e) => println!("Error occured when recognizing sound: {}", e),
+        Err(e) => log(
+            "call_py",
+            "recognize_track",
+            &format!("Error occured when recognizing sound: {}", e),
+        ),
     };
-    return def_rec;
+    return track_data;
 }
 
 static SHAZAM_CODE: &str = "
@@ -99,9 +114,9 @@ def recognize(data: bytes):
     )
     a = {'b': 'lol'}
     recognize_generator = list(shazam.recognizeSong())
-    song = \"n/a\"
-    artist = \"n/a\"
-    coverart = \"n/a\"
+    song = \"\"
+    artist = \"\"
+    coverart = \"\"
 
     song = recognize_generator[0][1]['track']['title']
     artist = recognize_generator[0][1]['track']['subtitle']
